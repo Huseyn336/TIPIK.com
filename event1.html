@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TİPİK.AZ - Enerji içkilərinin uşaqlar üçün qorxulu fəsadları!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6eef7 100%);
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Header Stili */
+        .main-header {
+            background: linear-gradient(135deg, #0a3d62, #1e88e5);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .slogan {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FF6B6B;
+            transform: translateY(-3px);
+        }
+
+        /* Navbar Stili */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            margin: 0 50px;
+            padding: 10px 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .nav-item button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .nav-item button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 10px 20px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f5f5f5;
+            color: #EF3340;
+            padding-left: 25px;
+        }
+
+        /* Məqalə və Sidebar Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+        }
+
+        .article {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .article h1 {
+            font-size: 2.5rem;
+            color: #0a3d62;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .meta i {
+            margin-right: 5px;
+            color: #1e88e5;
+        }
+
+        /* Şəkil Slayderi */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            margin: 25px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 5px solid white;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 450px;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a3d62;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            transform: scale(1.05);
+            border-color: #1e88e5;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .article p strong {
+            color: #0a3d62;
+            font-weight: 600;
+        }
+
+        /* Sosial media düymələri */
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 40px 0 20px;
+        }
+
+        .social-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-buttons a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-buttons .facebook {
+            background: #3b5998;
+        }
+
+        .social-buttons .twitter {
+            background: #1da1f2;
+        }
+
+        .social-buttons .pinterest {
+            background: #bd081c;
+        }
+
+        .social-buttons .linkedin {
+            background: #0077b5;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+
+        .sidebar h2 {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FF6B6B;
+            position: relative;
+        }
+
+        .sidebar h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #1e88e5;
+        }
+
+        .side-card {
+            display: flex;
+            margin-bottom: 25px;
+            background: #f9fbfd;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .side-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .side-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .side-card-content {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .side-card-content p {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .side-card-content span {
+            font-size: 0.9rem;
+            color: #1e88e5;
+            font-weight: 500;
+        }
+
+        /* Əlaqəli Yazılar */
+        .related-articles {
+            grid-column: 1 / -1;
+            margin-top: 60px;
+        }
+
+        .related-articles h2 {
+            font-size: 2.2rem;
+            color: #0a3d62;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .related-articles h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #338bef, #FF6B6B);
+            border-radius: 2px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body h3 {
+            font-size: 1.4rem;
+            color: #0a3d62;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-body .date {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #1e88e5;
+            font-weight: 500;
+        }
+
+        .card-body .date i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, #0a3d62, #1a3a5f);
+            color: white;
+            padding: 50px 5% 30px;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230a3d62" fill-opacity="1" d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,165.3C672,171,768,213,864,213.3C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') center top no-repeat;
+            background-size: cover;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #FF6B6B;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin: 12px 0;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a:hover {
+            color: #FF6B6B;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-bottom .social-icons a {
+            color: white;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom .social-icons a:hover {
+            color: #FF6B6B;
+        }
+
+        /* Responsive Dizayn */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            .main-nav {
+                flex-wrap: wrap;
+                margin: 0 20px;
+            }
+            
+            .article {
+                padding: 25px;
+            }
+            
+            .article h1 {
+                font-size: 2rem;
+            }
+            
+            .slider {
+                height: 300px;
+            }
+            
+            .sidebar {
+                padding: 20px;
+            }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar {
+                padding: 0 15px;
+            }
+            
+            .slogan {
+                font-size: 16px;
+            }
+            
+            .article {
+                padding: 20px;
+            }
+            
+            .article h1 {
+                font-size: 1.8rem;
+            }
+            
+            .slider {
+                height: 250px;
+            }
+            
+            .side-card {
+                flex-direction: column;
+            }
+            
+            .side-card img {
+                width: 100%;
+                height: 150px;
+            }
+            
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="images/Group 108.png" alt="TİPİK.AZ Logo">
+                <div class="logo-text"></div>
+            </div>
+            <h1 class="slogan">Təhsil İdman Peşə İnnovasiya Karyera</h1>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-item">
+                <a href="index.html"><button>Ana Səhifə</button></a>
+            </div>
+
+            <div class="nav-item">
+                <button>Təhsil və karyera</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Ali tehsil </a></li>
+                        <li><a href="#">Orta tehsil </a></li>
+                        <li><a href="#">Peşə təhsili</a></li>
+                        <li><a href="#">Vakansiya ve Tecrube </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Layihə və innovasiya</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Beynəlxalq-lahiyeler</a></li>
+                        <li><a href="#">Yerli-layiheler</a></li>
+                        <li><a href="#">Innovasiya</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Gəncliyimiz</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#"> Gencler Təşkilatlari</a></li>
+                        <li><a href="#">Musahibeler</a></li>
+                        <li><a href="#">Meqaleler</a></li>
+                        <li><a href="#">Regional fealiyyet</a></li>
+                        <li><a href="#">Tarixe Yazilanlar </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button>Azərbaycan</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Ekoloqiya ve Turizm</a></li>
+                        <li><a href="#">Mədəniyyət</a></li>
+                        <li><a href="#">Xeberler</a></li>
+                        <li><a href="#">Idman</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Haqqımızda</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Missiyamız</a></li>
+                        <li><a href="#">Komandamız</a></li>
+                        <li><a href="#">Əlaqə</a></li>
+                        <li><a href="#">Tərəfdaşlar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Məqalə hissəsi -->
+        <section class="article">
+            <h1>Enerji içkilərinin uşaqlar üçün qorxulu fəsadları!</h1>
+            <div class="meta">
+                <span><i class="far fa-calendar-alt"></i> 30 Aprel 2025</span>
+                <span><i class="far fa-eye"></i> 25 baxış</span>
+            </div>
+            
+            <!-- Şəkil Slayderi -->
+            <div class="slider-container">
+                <div class="slider" id="imageSlider">
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Enerji içkiləri">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1611574474484-ced6cb70a2cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Enerji içkiləri 2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1600271886742-f049cd5bba49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80" alt="Enerji içkiləri 3">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Enerji içkiləri 4">
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <button class="slider-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="thumbnails" id="thumbnails">
+                    <div class="thumbnail active">
+                        <img src="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Thumb 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1611574474484-ced6cb70a2cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Thumb 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1600271886742-f049cd5bba49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80" alt="Thumb 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Thumb 4">
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Qida təhlükəsizliyi mütəxəssisi Məhəsti Hüseynova xəbərdarlıq edir:</strong></p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque deleniti dolorum, quae velit ullam, eos temporibus facilis unde quam expedita totam odit accusantium itaque reprehenderit labore tempora esse commodiLorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque deleniti dolorum, quae velit ullam, eos temporibus facilis unde quam expedita totam odit accusantium itaque reprehenderit labore tempora esse commodiLorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque deleniti dolorum, quae velit ullam, eos temporibus facilis unde quam expedita totam odit accusantium itaque reprehenderit labore tempora esse commodiLorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque deleniti dolorum, quae velit ullam, eos temporibus facilis unde quam expedita totam odit accusantium itaque reprehenderit labore tempora esse commodiLorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque deleniti dolorum, quae velit ullam, eos temporibus facilis unde quam expedita totam odit accusantium itaque reprehenderit labore tempora esse commodi.</p>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam architecto, laudantium, officiis temporibus aperiam cumque placeat, consequatur vero maxime autem aut odio. Voluptatum, natus. Dolores sunt voluptate quas repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, deleniti! Quasi libero minima dolore eius, molestias ut, impedit enim voluptates, quia quas sed? Animi, commodi doloribus! Quas ex voluptates corporis?</p>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt laudantium veritatis deserunt expedita laborum dolorum, modi asperiores officia molestias voluptatibus quos, nemo eaque? Quisquam, ipsam. Dolore odit eum dicta reiciendis.</p>
+            
+            <div class="social-buttons">
+                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Əlaqəli Yazılar</h2>
+
+            <a href="xeber1.html" class="side-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Onlayn qida sifarişi">
+                <div class="side-card-content">
+                    <p>Onlayn qida sifarişi verənlərə vacib tövsiyə...</p>
+                    <span>16 May 2025</span>
+                </div>
+            </a>
+
+            <a href="xeber2.html" class="side-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Qidalar haqqında">
+                <div class="side-card-content">
+                    <p>Bu qidalardan uzaq durun! – Mütəxəssis Açıqladı</p>
+                    <span>16 May 2025</span>
+                </div>
+            </a>
+
+            <a href="xeber3.html" class="side-card">
+                <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80" alt="Sağlam qidalanma">
+                <div class="side-card-content">
+                    <p>Sağlam qidalanmanın əsas prinsipləri</p>
+                    <span>16 May 2025</span>
+                </div>
+            </a>
+
+            <a href="xeber4.html" class="side-card">
+                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Təbii qidalar">
+                <div class="side-card-content">
+                    <p>Təbii qidaların faydaları və hazırlanması</p>
+                    <span>16 May 2025</span>
+                </div>
+            </a>
+
+            <a href="xeber5.html" class="side-card">
+                <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Uşaqlar üçün qida">
+                <div class="side-card-content">
+                    <p>Uşaqların inkişafı üçün vacib qidalar</p>
+                    <span>16 May 2025</span>
+                </div>
+            </a>
+        </aside>
+
+        <!-- Related cards -->
+        <section class="related-articles">
+            <h2>Əlaqəli Məqalələr</h2>
+            <div class="card-grid">
+                <a href="xeber1.html" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1921&q=80" alt="Qərbi Azərbaycanın yemək inciləri">
+                    <div class="card-body">
+                        <h3>Qərbi Azərbaycanın yemək inciləri</h3>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 19 May 2025</div>
+                    </div>
+                </a>
+                <a href="xeber2.html" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="PR Manifesti">
+                    <div class="card-body">
+                        <h3>PR Manifesti: Öz hekayəni yarat</h3>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 19 May 2025</div>
+                    </div>
+                </a>
+                <a href="xeber3.html" class="related-card">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Onlayn sifariş">
+                    <div class="card-body">
+                        <h3>Onlayn sifariş verənlərə vacib xəbərdarlıq</h3>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 16 May 2025</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Təhsil</h4>
+                <ul>
+                    <li><a href="/pese-tehsili">Peşə Təhsili</a></li>
+                    <li><a href="/ali-ve-orta">Ali və Orta</a></li>
+                    <li><a href="/xaricde-tehsil">Xaricdə Təhsil</a></li>
+                    <li><a href="/vakansiya-tecrube">Vakansiya Təcrübə</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Layihələr</h4>
+                <ul>
+                    <li><a href="/beynalxalq-layiheler">Beynəlxalq Layihələr</a></li>
+                    <li><a href="/yerli-layiheler">Yerli Layihələr</a></li>
+                    <li><a href="/innovasiya">İnovasiya</a></li>
+                    <li><a href="/tedbirler">Tədbirlər</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Fəaliyyət</h4>
+                <ul>
+                    <li><a href="/reqional-fealiyyet">Reqional Fəaliyyət</a></li>
+                    <li><a href="/gencler-teskilatlari">Gənclər Təşkilatları</a></li>
+                    <li><a href="/musahibeler">Müsahibələr</a></li>
+                    <li><a href="/tarixe-yazilanlar">Tarixə Yazılanlar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Əlaqə</h4>
+                <ul>
+                    <li><a href="/fealiyyet">Fəaliyyət</a></li>
+                    <li><a href="/bizim-heyet">Bizim Heyət</a></li>
+                    <li><a href="/elaqe">Əlaqə</a></li>
+                    <li><a href="/tedbir-takvimi">Tədbir Təqvimi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 TPIK — Bütün hüquqlar qorunur.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('imageSlider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            // Şəkil slayderini başlat
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                
+                slider.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+                
+                // Thumbnail aktivliyini yenilə
+                thumbnails.forEach((thumb, i) => {
+                    thumb.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            // Növbəti şəkil
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+            
+            // Əvvəlki şəkil
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+            
+            // Auto-slide funksiyası
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // İntervalı sıfırla
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Düymələrə klik əlavə et
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+            
+            // Thumbnail-lərə klik əlavə et
+            thumbnails.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // Klaviatura ilə idarəetmə
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    resetInterval();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    resetInterval();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

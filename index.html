@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TİPİK.AZ - Gənclərin Gələcək Platforması</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Slayder Stili */
+        .swiper-section {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+        }
+        
+        .slide-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .slide-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        }
+        
+        .slide-button {
+            background: #EF3340;
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(239, 51, 64, 0.4);
+        }
+        
+        .slide-button:hover {
+            background: #d32f2f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(239, 51, 64, 0.5);
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(0,0,0,0.7);
+            transform: scale(1.1);
+        }
+        
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            opacity: 1;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #EF3340;
+        }
+        
+        .swiper-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 61, 98, 0.7) 0%, rgba(30, 136, 229, 0.6) 100%);
+            z-index: 1;
+        }
+
+        /* Header Stili */
+        .main-header {
+            background: linear-gradient(135deg, #0a3d62, #1e88e5);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .slogan {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #EF3340;
+            transform: translateY(-3px);
+        }
+
+        /* Navbar Stili */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            margin: 0 50px;
+            padding: 10px 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .nav-item button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .nav-item button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 10px 20px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f5f5f5;
+            color: #EF3340;
+            padding-left: 25px;
+        }
+
+        /* Bölmə Başlıqları */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0a3d62;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #338bef, #EF3340, #1ee542);
+            border-radius: 2px;
+        }
+
+        .section-title h1 {
+            font-size: 2.5rem;
+            color: #0a3d62;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #EF3340;
+            border-radius: 2px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0a3d62;
+        }
+
+        .card-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .card .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .card .social-icons a {
+            color: #6c757d;
+            transition: color 0.3s;
+        }
+
+        .card .social-icons a:hover {
+            color: #EF3340;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            padding: 40px 5%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 40px 5% 30px;
+        }
+
+        .calendar-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #0a3d62;
+            margin-bottom: 30px;
+        }
+
+        .calendar-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .calendar-header h3 {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            font-weight: 600;
+        }
+
+        .calendar-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .calendar-controls button {
+            background: #0a3d62;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-controls button:hover {
+            background: #EF3340;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .day-header {
+            text-align: center;
+            padding: 12px 0;
+            font-weight: 600;
+            color: #0a3d62;
+            background: #e3f2fd;
+            border-radius: 8px;
+        }
+
+        .day {
+            height: 100px;
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: #f0f7ff;
+        }
+
+        .day-number {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #495057;
+            align-self: flex-start;
+        }
+
+        .day.today .day-number {
+            background: #EF3340;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .day.event {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .day.event .day-number {
+            color: #2E7D32;
+            font-weight: 700;
+        }
+
+        .event-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .event-dot {
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin: 0 2px;
+        }
+
+        .event-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 400px;
+            width: 90%;
+            display: none;
+        }
+
+        .event-popup h3 {
+            color: #0a3d62;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .event-popup p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .event-popup strong {
+            color: #0a3d62;
+        }
+
+        .event-popup button {
+            background: #EF3340;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .event-popup button:hover {
+            background: #d32f2f;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #EF3340;
+        }
+
+        /* Clock Section */
+        .clock-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .clock-container {
+            display: inline-block;
+            background: linear-gradient(135deg, #0a3d62, #1e5799);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .clock-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        #clock {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Roboto Condensed', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .date-display {
+            font-size: 1.4rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Stairway Section */
+        .stairway-container {
+            padding: 40px 5%;
+            margin: 40px 0;
+        }
+
+        .stairway {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+        }
+
+        .number {
+            background: #0a3d62;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+
+
+
+
+
+
+   .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a3d62, #1e88e5);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .map-section {
+            padding: 40px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #0a3d62;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #338bef, #EF3340, #1ee542);
+            border-radius: 2px;
+        }
+
+        .map-container {
+            height: 600px;
+            background: url('images/az-04.png') center center no-repeat;
+            background-size: contain;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ddd;
+        }
+
+        .map-marker {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #EF3340;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(239, 51, 64, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .map-marker:hover {
+            transform: rotate(-45deg) scale(1.2);
+        }
+
+        .map-marker::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+            position: relative;
+            animation: modalOpen 0.4s ease;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @keyframes modalOpen {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8rem;
+            color: #777;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #EF3340;
+        }
+
+        .modal-header {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            margin-bottom: 15px;
+        }
+
+        .modal-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            flex: 1 1 200px;
+        }
+
+        .info-title {
+            font-weight: 600;
+            color: #0a3d62;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .social-icons2 {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icons2 a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f7ff;
+            color: #0a3d62;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons2 a:hover {
+            background: #0a3d62;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .description {
+            line-height: 1.8;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .map-container {
+                height: 500px;
+            }
+            .modal-body {
+                padding: 20px;
+            }
+            .swiper-section {
+                height: 400px;
+            }
+            .slide-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px 15px;
+            }
+            .map-section {
+                padding: 20px;
+            }
+            .map-container {
+                height: 400px;
+            }
+            .swiper-section {
+                height: 350px;
+            }
+            .slide-content h2 {
+                font-size: 1.6rem;
+            }
+            .slide-content p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, #0a3d62, #1a3a5f);
+            color: white;
+            padding: 50px 5% 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230a3d62" fill-opacity="1" d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,165.3C672,171,768,213,864,213.3C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') center top no-repeat;
+            background-size: cover;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #EF3340;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin: 12px 0;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .footer-section a:hover {
+            color: #EF3340;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-bottom .social-icons a {
+            color: white;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom .social-icons a:hover {
+            color: #EF3340;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar {
+                grid-template-columns: repeat(7, 1fr);
+            }
+
+            .day {
+                height: 80px;
+            }
+
+            #clock {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Tərəfdaşlar bölməsi */
+        .partners-section {
+            padding: 40px 5%;
+            background: #f8f9fa00;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin: 60px 0 40px;
+        }
+
+        .partners-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #0a3d62;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .partners-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #338bef, #EF3340, #1ee542);
+            border-radius: 2px;
+        }
+
+        .large-partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .large-partner {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .large-partner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(171, 33, 33, 0.15);
+        }
+
+        .large-partner img {
+            max-width: 100%;
+            max-height: 100px;
+            transition: filter 0.3s;
+        }
+
+        .large-partner:hover img {
+            filter: grayscale(0%);
+        }
+
+        .small-partners-container {
+            overflow: hidden;
+            position: relative;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 10px 0;
+        }
+
+        .small-partners {
+            display: flex;
+            position: absolute;
+            animation: scroll-partners 20s linear infinite;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .small-partner {
+            background: white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            min-width: 150px;
+        }
+
+        .small-partner img {
+            max-height: 40px;
+            max-width: 100%;
+            transition: filter 0.3s;
+        }
+
+        .small-partner:hover img {
+            filter: grayscale(0%);
+        }
+
+        @keyframes scroll-partners {
+            0% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo">
+                <div class="logo-text">TIPIK.AZ</div>
+            </div>
+            <h1 class="slogan">Təhsil İdman Peşə İnnovasiya Karyera</h1>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-item">
+                <a href="index.html"><button>Ana Səhifə</button></a>
+            </div>
+            <div class="nav-item">
+                <button>Təhsil və karyera</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Ali tehsil </a></li>
+                        <li><a href="#">Orta tehsil </a></li>
+                        <li><a href="#">Peşə təhsili</a></li>
+                        <li><a href="#">Vakansiya ve Tecrube </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Layihə və innovasiya</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Beynəlxalq-lahiyeler</a></li>
+                        <li><a href="#">Yerli-layiheler</a></li>
+                        <li><a href="#">Innovasiya</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Gəncliyimiz</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#"> Gencler Təşkilatlari</a></li>
+                        <li><a href="#">Musahibeler</a></li>
+                        <li><a href="#">Meqaleler</a></li>
+                        <li><a href="#">Regional fealiyyet</a></li>
+                        <li><a href="#">Tarixe Yazilanlar </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Azərbaycan</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Ekoloqiya ve Turizm</a></li>
+                        <li><a href="#">Mədəniyyət</a></li>
+                        <li><a href="#">Xeberler</a></li>
+                        <li><a href="#">Saglam Gelecek</a></li>
+                        <li><a href="#">Idman</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-item">
+                <button>Haqqımızda</button>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Missiyamız</a></li>
+                        <li><a href="#">Komandamız</a></li>
+                        <li><a href="#">Əlaqə</a></li>
+                        <li><a href="#">Tərəfdaşlar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Slayder bölməsi -->
+    <section class="swiper-section">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80')">
+                    <div class="slide-content">
+                        <h2>Təhsil, İdman, Peşə, İnnovasiya, Karyera</h2>
+                        <p>Gənclərin gələcəyini qurmaq üçün bir platforma</p>
+                        <button class="slide-button">Kəşf edin</button>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80')">
+                    <div class="slide-content">
+                        <h2>Yeni Peşə İmkanları</h2>
+                        <p>Müasir tələblərə cavab verən peşə təhsili proqramları</p>
+                        <button class="slide-button">Öyrənin</button>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80')">
+                    <div class="slide-content">
+                        <h2>Gənclər Tədbirləri</h2>
+                        <p>İştirak edin, öyrənin və şəbəkə qurun</p>
+                        <button class="slide-button">Qoşulun</button>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80')">
+                    <div class="slide-content">
+                        <h2>İnnovativ Layihələr</h2>
+                        <p>Yenilikçi ideyalarınızı reallaşdırmaq üçün dəstək</p>
+                        <button class="slide-button">Təklif edin</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="section-title">
+        <h1>Gənclər Tədbirləri</h1>
+    </div>
+
+    <div class="cards-container">
+        <div class="card" onclick="window.location.href='event1.html'">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Tədbir">
+            <div class="card-content">
+                <div class="card-title">Startup Seminarı</div>
+                <div class="card-date"><i class="fas fa-calendar-alt"></i> 3 İyun 2025</div>
+                <div class="social-icons"></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="window.location.href='event1.html'">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Tədbir">
+            <div class="card-content">
+                <div class="card-title">Texnologiya Forumu</div>
+                <div class="card-date"><i class="fas fa-calendar-alt"></i> 10 İyun 2025</div>
+                <div class="social-icons"></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="window.location.href='event1.html'">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Tədbir">
+            <div class="card-content">
+                <div class="card-title">Karyera Günü</div>
+                <div class="card-date"><i class="fas fa-calendar-alt"></i> 17 İyun 2025</div>
+                <div class="social-icons"></div>
+            </div>
+        </div>
+        
+        <div class="card" onclick="window.location.href='event1.html'">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Tədbir">
+            <div class="card-content">
+                <div class="card-title">Gənclər Forumu</div>
+                <div class="card-date"><i class="fas fa-calendar-alt"></i> 24 İyun 2025</div>
+                <div class="social-icons"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clock Section -->
+    <div class="clock-section">
+        <div class="clock-container">
+            <div class="clock-title">Cari vaxt</div>
+            <div id="clock">00:00:00</div>
+            <div class="date-display" id="date-display">1 Yanvar 2023</div>
+        </div>
+    </div>
+
+    <!-- Calendar Section -->
+    <div class="section-title">
+        <h1>Gənclərin Yol Xəritəsi</h1>
+    </div>
+
+    <div class="calendar-section">
+        <h2>Tədbir Təqvimi</h2>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <h3 id="current-month-year">İyun 2025</h3>
+                <div class="calendar-controls">
+                    <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="calendar" id="calendar">
+                <div class="day-header">B</div>
+                <div class="day-header">Be</div>
+                <div class="day-header">Ça</div>
+                <div class="day-header">Ç</div>
+                <div class="day-header">Ca</div>
+                <div class="day-header">C</div>
+                <div class="day-header">Ş</div>
+                <!-- Calendar days will be generated by JavaScript -->
+            </div>
+            <div class="event-popup" id="event-popup"></div>
+        </div>
+    </div>
+
+    <!-- Stairway Section -->
+    <div class="stairway-container">
+        <div class="stairway" id="stairway">
+            <div class="step">
+                <div class="number">1</div>
+                <div class="title">Vakansiya ve Tecrube</div>
+            </div>
+            <div class="step">
+                <div class="number">2</div>
+                <div class="title">Pese tehsili</div>
+            </div>
+            <div class="step">
+                <div class="number">3</div>
+                <div class="title">Ekoloqiya ve Turizm</div>
+            </div>
+            <div class="step">
+                <div class="number">4</div>
+                <div class="title">Gencler teskilatlari</div>
+            </div>
+            <div class="step">
+                <div class="number">5</div>
+                <div class="title">Meqaleler</div>
+            </div>
+            <div class="step">
+                <div class="number">6</div>
+                <div class="title">Xeberler ve Gundem</div>
+            </div>
+            <div class="step">
+                <div class="number">7</div>
+                <div class="title">Innovasiya</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class="container">
+        <div class="header">
+            <h1>Azərbaycanda Gənclər Fəaliyyəti</h1>
+            <p>Gənclər təşkilatları və Gənclər Evlərinin yerləşdiyi şəhərlərin interaktiv xəritəsi</p>
+        </div>
+
+        <div class="map-section">
+            <div class="section-title">
+                <h2>Gənclər Təşkilatlarının Xəritəsi</h2>
+            </div>
+            
+            <div class="map-container" id="azerbaijan-map">
+                <!-- Bakı -->
+                <div class="map-marker" style="top: 45%; left: 60%;" data-city="baku"></div>
+                
+                <!-- Gəncə -->
+                <div class="map-marker" style="top: 40%; left: 20%;" data-city="ganja"></div>
+                
+                <!-- Sumqayıt -->
+                <div class="map-marker" style="top: 42%; left: 55%;" data-city="sumgait"></div>
+                
+                <!-- Lənkəran -->
+                <div class="map-marker" style="top: 35%; left: 65%;" data-city="lankaran"></div>
+                
+                <!-- Şəki -->
+                <div class="map-marker" style="top: 30%; left: 30%;" data-city="sheki"></div>
+                
+                <!-- Mingəçevir -->
+                <div class="map-marker" style="top: 38%; left: 28%;" data-city="mingachevir"></div>
+                
+                <!-- Şirvan -->
+                <div class="map-marker" style="top: 58%; left: 50%;" data-city="shirvan"></div>
+                
+                <!-- Naxçıvan -->
+                <div class="map-marker" style="top: 30%; left: 5%;" data-city="nakhchivan"></div>
+                
+                <!-- Quba -->
+                <div class="map-marker" style="top: 28%; left: 60%;" data-city="quba"></div>
+            </div>
+        </div>
+        
+      
+    </div>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="city-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <div class="modal-header">
+                <img id="modal-image" src="" alt="Gənclər Evi">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modal-title">Bakı Gənclər Evi</h2>
+                
+                <div class="modal-info">
+                    <div class="info-item">
+                        <div class="info-title">Ünvan:</div>
+                        <div id="modal-address">Bakı şəhəri, Nərimanov rayonu, S.Vurğun küç. 42</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-title">E-poçt:</div>
+                        <div id="modal-email">baku@genclerevi.az</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-title">Telefon:</div>
+                        <div id="modal-phone">+994 12 555 44 33</div>
+                    </div>
+                </div>
+                
+                <div class="social-icons2">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
+                
+                <div class="description" id="modal-description">
+                    Bakı Gənclər Evi gənclərin istirahət, təhsil və yaradıcılıq fəaliyyətləri üçün geniş imkanlar təqdim edir. 
+                    Burada müxtəlif tədbirlər, təlimlər və idman yarışları keçirilir. 
+                    Gənclər Evində həmçinin kitabxana, kompüter otağı və konfrans zalı mövcuddur.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // City data
+        const cityData = {
+            baku: {
+                title: "Bakı Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Bakı şəhəri, Nərimanov rayonu, S.Vurğun küç. 42",
+                email: "baku@genclerevi.az",
+                phone: "+994 12 555 44 33",
+                description: "Bakı Gənclər Evi gənclərin istirahət, təhsil və yaradıcılıq fəaliyyətləri üçün geniş imkanlar təqdim edir. Burada müxtəlif tədbirlər, təlimlər və idman yarışları keçirilir. Gənclər Evində həmçinin kitabxana, kompüter otağı və konfrans zalı mövcuddur."
+            },
+            ganja: {
+                title: "Gəncə Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Gəncə şəhəri, Nizami küç. 15",
+                email: "ganja@genclerevi.az",
+                phone: "+994 22 444 33 22",
+                description: "Gəncə Gənclər Evi şəhər gənclərinin mədəni, idman və təhsil ehtiyaclarını ödəmək üçün fəaliyyət göstərir. Həftəlik tədbirlər, musiqi dərsləri və sərgilər keçirilir. Gənclər burada öz bacarıqlarını inkişaf etdirə bilərlər."
+            },
+            sumgait: {
+                title: "Sumqayıt Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Sumqayıt şəhəri, M.A.Rəsulzadə küç. 25",
+                email: "sumgait@genclerevi.az",
+                phone: "+994 18 333 22 11",
+                description: "Sumqayıt Gənclər Evi gənclərin yaradıcılıq potensialını açmağa kömək edir. Burada rəssamlıq, fotoqrafiya, rəqs və digər yaradıcılıq dərnəkləri fəaliyyət göstərir. Həmçinin idman zalları və kafe də mövcuddur."
+            },
+            lankaran: {
+                title: "Lənkəran Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Lənkəran şəhəri, İstiqlal küç. 7",
+                email: "lankaran@genclerevi.az",
+                phone: "+994 25 222 11 00",
+                description: "Lənkəran Gənclər Evi region gənclərinin inkişafına xidmət edir. Təbiətə yaxın olan bu mərkəzdə ekoloji tədbirlər, səyahət dərnəyi və yerli mədəniyyəti tanıtmaq üçün fəaliyyətlər keçirilir."
+            },
+            sheki: {
+                title: "Şəki Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1593697821091-51b0a1b2623f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Şəki şəhəri, M.F.Axundov küç. 5",
+                email: "sheki@genclerevi.az",
+                phone: "+994 24 111 99 88",
+                description: "Şəki Gənclər Evi tarixi məkanda yerləşir və gənclərə özünü inkişaf etdirmək üçün müxtəlif imkanlar təqdim edir. Ənənəvi sənətlər, xalça toxuculuğu və musiqi dərnəkləri fəaliyyət göstərir."
+            },
+            mingachevir: {
+                title: "Mingəçevir Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Mingəçevir şəhəri, Akademik Z.Əliyeva küç. 3",
+                email: "mingachevir@genclerevi.az",
+                phone: "+994 24 777 66 55",
+                description: "Mingəçevir Gənclər Evi texnologiya və idman istiqamətlərinə üstünlük verir. Kompüter laboratoriyası, innovasiya mərkəzi və müasir idman zalları ilə təchiz olunub. Həmçinin su idman növləri üzrə təlimlər keçirilir."
+            },
+            shirvan: {
+                title: "Şirvan Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Şirvan şəhəri, Şəhriyar küç. 18",
+                email: "shirvan@genclerevi.az",
+                phone: "+994 21 444 55 66",
+                description: "Şirvan Gənclər Evi gənclərin sosial fəaliyyətlərini dəstəkləyir. Könüllülük layihələri, sosial tədbirlər və peşəkar inkişaf təlimləri təşkil edilir. Gənclər burada liderlik bacarıqlarını inkişaf etdirə bilərlər."
+            },
+            nakhchivan: {
+                title: "Naxçıvan Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Naxçıvan şəhəri, Ə.Cəmil küç. 10",
+                email: "nakhchivan@genclerevi.az",
+                phone: "+994 36 888 77 66",
+                description: "Naxçıvan Gənclər Evi Muxtar Respublika gənclərinə xidmət edir. Tarix və mədəniyyətin qorunması, elmi tədqiqatlar və turizm inkişafı istiqamətləri üzrə fəaliyyət göstərir. Həmçinin xarici dillər üzrə kurslar təşkil edilir."
+            },
+            quba: {
+                title: "Quba Gənclər Evi",
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                address: "Quba şəhəri, M.Ə.Sabir küç. 12",
+                email: "quba@genclerevi.az",
+                phone: "+994 23 999 88 77",
+                description: "Quba Gənclər Evi dağlıq region gənclərinin ehtiyaclarını nəzərə alaraq fəaliyyət göstərir. Ekoturizm, ətraf mühitin qorunması və kənd təsərrüfatı innovasiyaları üzrə tədbirlər keçirilir. Həmçinin yerli sənətkarlıq nümunələrinin öyrədilməsi mərkəzi kimi çıxış edir."
+            }
+        };
+
+        // DOM Elements
+        const modal = document.getElementById('city-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image');
+        const modalAddress = document.getElementById('modal-address');
+        const modalEmail = document.getElementById('modal-email');
+        const modalPhone = document.getElementById('modal-phone');
+        const modalDescription = document.getElementById('modal-description');
+        const markers = document.querySelectorAll('.map-marker');
+
+        // Add event listeners to markers
+        markers.forEach(marker => {
+            marker.addEventListener('click', function() {
+                const cityId = this.getAttribute('data-city');
+                showModal(cityId);
+            });
+        });
+
+        // Close modal events
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+
+        // Function to show modal with city data
+        function showModal(cityId) {
+            const city = cityData[cityId];
+            if (!city) return;
+            
+            modalTitle.textContent = city.title;
+            modalImage.src = city.image;
+            modalAddress.textContent = city.address;
+            modalEmail.textContent = city.email;
+            modalPhone.textContent = city.phone;
+            modalDescription.textContent = city.description;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close modal
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="partners-section">
+        <div class="partners-title">
+            <h2>Tərəfdaşlarımız</h2>
+        </div>
+
+        <div class="large-partners">
+            <!-- 6 böyük tərəfdaş -->
+            <div class="large-partner">
+                <img src="images/Azerbaijan_PA_Logo_(cropped).png" alt="AMEA">
+            </div>
+            <div class="large-partner">
+                <img src="images/birincivitse-260x78.png" alt="ADA Universiteti">
+            </div>
+            <div class="large-partner">
+                <img src="images/nazirlerkabineti-260x78.png" alt="AzTU">
+            </div>
+            <div class="large-partner">
+                <img src="images/gin-logo-new-150x75.png" alt="BDU">
+            </div>
+            <div class="large-partner">
+                <img src="images/emekveehali-150x75.png" alt="Gənclər və İdman Nazirliyi">
+            </div>
+            <div class="large-partner">
+                <img src="images/justicekhojaly-150x75.png" alt="Təhsil Nazirliyi">
+            </div>
+        </div>
+
+        <div class="small-partners-container">
+            <div class="small-partners">
+                <!-- 6 kiçik tərəfdaş (hərəkət edən) -->
+
+
+
+                <div class="small-partner">
+    <img src="images/Azerbaijan_PA_Logo_(cropped).png" alt="AMEA">
+
+
+
+                </div>
+
+
+
+                <div class="small-partner">
+
+         <img src="images/birincivitse-260x78.png" alt="ADA Universiteti">
+                   
+                </div>
+
+
+
+                <div class="small-partner">
+                  
+   <img src="images/nazirlerkabineti-260x78.png" alt="AzTU">
+
+
+                </div>
+
+
+                <div class="small-partner">
+                                  <img src="images/gin-logo-new-150x75.png" alt="BDU">
+
+
+                </div>
+
+
+
+                <div class="small-partner">
+                       <img src="images/emekveehali-150x75.png" alt="Gənclər və İdman Nazirliyi">
+                </div>
+
+
+
+                <div class="small-partner">
+                           <img src="images/justicekhojaly-150x75.png" alt="Təhsil Nazirliyi">
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Təhsil</h4>
+                <ul>
+                    <li><a href="/pese-tehsili">Peşə Təhsili</a></li>
+                    <li><a href="/ali-ve-orta">Ali və Orta</a></li>
+                    <li><a href="/xaricde-tehsil">Xaricdə Təhsil</a></li>
+                    <li><a href="/vakansiya-tecrube">Vakansiya Təcrübə</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Layihələr</h4>
+                <ul>
+                    <li><a href="/beynalxalq-layiheler">Beynəlxalq Layihələr</a></li>
+                    <li><a href="/yerli-layiheler">Yerli Layihələr</a></li>
+                    <li><a href="/innovasiya">İnovasiya</a></li>
+                    <li><a href="/tedbirler">Tədbirlər</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Fəaliyyət</h4>
+                <ul>
+                    <li><a href="/reqional-fealiyyet">Reqional Fəaliyyət</a></li>
+                    <li><a href="/gencler-teskilatlari">Gənclər Təşkilatları</a></li>
+                    <li><a href="/musahibeler">Müsahibələr</a></li>
+                    <li><a href="/tarixe-yazilanlar">Tarixə Yazılanlar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Əlaqə</h4>
+                <ul>
+                    <li><a href="/fealiyyet">Fəaliyyət</a></li>
+                    <li><a href="/bizim-heyet">Bizim Heyət</a></li>
+                    <li><a href="/elaqe">Əlaqə</a></li>
+                    <li><a href="/tedbir-takvimi">Tədbir Təqvimi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 TPIK — Bütün hüquqlar qorunur.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Real-time clock
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+            // Update date display
+            const months = ['Yanvar', 'Fevral', 'Mart', 'Aprel', 'May', 'İyun',
+                'İyul', 'Avqust', 'Sentyabr', 'Oktyabr', 'Noyabr', 'Dekabr'];
+            const day = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+
+            document.getElementById('date-display').textContent = `${day} ${month} ${year}`;
+        }
+
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call
+
+        // Calendar functionality
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        // Azerbaijani month names
+        const monthNames = ["Yanvar", "Fevral", "Mart", "Aprel", "May", "İyun",
+            "İyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"];
+
+        // Azerbaijani day names (short)
+        const dayNames = ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"];
+
+        // Events data (hardcoded for demonstration)
+        const events = {
+            '2025-5-3': {
+                title: "Startup Seminarı",
+                place: "Bakı Expo Mərkəzi",
+                time: "15:00",
+                phone: "+994503334455",
+                description: "Yeni başlayan gənc sahibkarlar üçün mühüm məlumatlar və təcrübə paylaşımı."
+            },
+            '2025-5-10': {
+                title: "Karyera Günü",
+                place: "ADA Universiteti",
+                time: "11:00",
+                phone: "+994503221100",
+                description: "Şirkətlərlə birbaşa görüş və karyera imkanları."
+            },
+            '2025-5-17': {
+                title: "Texnologiya Forumu",
+                place: "Bakı İnnovasiya Mərkəzi",
+                time: "13:00",
+                phone: "+994552001122",
+                description: "Texnologiya sahəsində yeniliklər və gələcək trendlər."
+            },
+            '2025-5-24': {
+                title: "Gənclər Forumu",
+                place: "Gənclər Evi",
+                time: "13:30",
+                phone: "+994552223344",
+                description: "Gənclərin problemləri və həll yolları müzakirəsi."
+            },
+            '2025-6-1': {
+                title: "Təhsil Sərgisi",
+                place: "Milli Kitabxana",
+                time: "10:00",
+                phone: "+994502345678",
+                description: "Ali təhsil müəssisələri və təqaüd imkanları."
+            },
+            '2025-6-8': {
+                title: "Gənclər Zirvəsi",
+                place: "Heydər Əliyev Mərkəzi",
+                time: "09:30",
+                phone: "+994506789012",
+                description: "Gənc liderlərin görüşü və təcrübə mübadiləsi."
+            }
+        };
+
+        // Generate calendar for a specific month and year
+        function generateCalendar(month, year) {
+            const calendarEl = document.getElementById('calendar');
+            const monthYearEl = document.getElementById('current-month-year');
+
+            // Set the month and year header
+            monthYearEl.textContent = `${monthNames[month]} ${year}`;
+
+            // Clear existing days (keep the headers)
+            while (calendarEl.children.length > 7) {
+                calendarEl.removeChild(calendarEl.lastChild);
+            }
+
+            // Get first day of the month and number of days
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Adjust first day to start on Monday (Azerbaijani calendar)
+            // In JavaScript: Sunday=0, Monday=1, ..., Saturday=6
+            // We want: Monday=0, Tuesday=1, ..., Sunday=6
+            let adjustedFirstDay = (firstDay + 6) % 7;
+
+            // Add empty cells for the days before the first day
+            for (let i = 0; i < adjustedFirstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('day');
+                calendarEl.appendChild(emptyDay);
+            }
+
+            // Get today's date for comparison
+            const today = new Date();
+
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.classList.add('day');
+
+                // Check if today
+                if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                    dayEl.classList.add('today');
+                }
+
+                // Check if event exists for this day
+                const eventKey = `${year}-${month}-${day}`;
+                if (events[eventKey]) {
+                    dayEl.classList.add('event');
+                }
+
+                // Day number
+                const dayNumber = document.createElement('div');
+                dayNumber.classList.add('day-number');
+                dayNumber.textContent = day;
+                dayEl.appendChild(dayNumber);
+
+                // Add event indicator if event exists
+                if (events[eventKey]) {
+                    const eventIndicator = document.createElement('div');
+                    eventIndicator.classList.add('event-indicator');
+                    const eventDot = document.createElement('div');
+                    eventDot.classList.add('event-dot');
+                    eventIndicator.appendChild(eventDot);
+                    dayEl.appendChild(eventIndicator);
+                }
+
+                // Add click event to show event details
+                dayEl.addEventListener('click', () => {
+                    if (events[eventKey]) {
+                        const event = events[eventKey];
+                        const popup = document.getElementById('event-popup');
+                        popup.innerHTML = `
+                            <div class="close-btn" onclick="document.getElementById('event-popup').style.display='none'">&times;</div>
+                            <h3>${event.title}</h3>
+                            <p><strong>Tarix:</strong> ${day} ${monthNames[month]} ${year}</p>
+                            <p><strong>Yer:</strong> ${event.place}</p>
+                            <p><strong>Vaxt:</strong> ${event.time}</p>
+                            <p><strong>Əlaqə:</strong> ${event.phone}</p>
+                            <p><strong>Təsvir:</strong> ${event.description}</p>
+                            <button>Qeydiyyat</button>
+                        `;
+                        popup.style.display = 'block';
+                    }
+                });
+
+                calendarEl.appendChild(dayEl);
+            }
+        }
+
+        // Previous month button
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        // Next month button
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        // Close popup when clicking outside
+        window.addEventListener('click', (e) => {
+            const popup = document.getElementById('event-popup');
+            if (e.target === popup) {
+                popup.style.display = 'none';
+            }
+        });
+
+        // Initialize calendar with current month
+        generateCalendar(currentMonth, currentYear);
+
+        // Tərəfdaşların hərəkət sürətini tənzimləmək
+        const smallPartners = document.querySelector('.small-partners');
+        let scrollSpeed = 50;
+
+        function adjustScrollSpeed() {
+            const containerWidth = document.querySelector('.small-partners-container').offsetWidth;
+            const partnersWidth = smallPartners.scrollWidth / 2;
+            const duration = partnersWidth / scrollSpeed;
+
+            smallPartners.style.animationDuration = `${duration}s`;
+        }
+
+        window.addEventListener('load', adjustScrollSpeed);
+        window.addEventListener('resize', adjustScrollSpeed);
+    </script>
+</body>
+</html>
